@@ -1,5 +1,5 @@
 appId: com.clipboard-history.app
-productName: "Clipboard History"
+productName: "小明剪贴板"
 copyright: Copyright 2026
 
 directories:
@@ -22,5 +22,5 @@ nsis:
   allowToChangeInstallationDirectory: true
   createDesktopShortcut: true
   createStartMenuShortcut: true
-  shortcutName: "Clipboard History"
-  uninstallDisplayName: "Clipboard History"
+  shortcutName: "小明剪贴板"
+  uninstallDisplayName: "小明剪贴板"

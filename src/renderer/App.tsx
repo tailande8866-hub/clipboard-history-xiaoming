@@ -17,7 +17,7 @@ export default function App() {
   return (
     <>
       <header className="app-header">
-        <h1>历史粘贴板</h1>
+        <h1>小明剪贴板</h1>
         <RetentionSelector />
       </header>
 

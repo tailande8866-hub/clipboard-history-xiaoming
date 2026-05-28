@@ -84,7 +84,7 @@ function createTray(): void {
     { type: 'separator' },
     { label: '退出', click: () => { isQuitting = true; app.quit() } },
   ])
-  tray.setToolTip('历史粘贴板')
+  tray.setToolTip('小明剪贴板')
   tray.setContextMenu(menu)
   tray.on('click', toggleWindow)
 }
