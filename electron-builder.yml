@@ -1,0 +1,26 @@
+appId: com.clipboard-history.app
+productName: "Clipboard History"
+copyright: Copyright 2026
+
+directories:
+  output: dist
+  buildResources: resources
+
+files:
+  - "out/**/*"
+  - "!**/*.ts"
+  - "!**/*.map"
+
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: resources/icon.ico
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: "Clipboard History"
+  uninstallDisplayName: "Clipboard History"

@@ -1,0 +1,30 @@
+{
+  "name": "clipboard-history",
+  "version": "1.0.0",
+  "description": "Windows 历史粘贴板管理软件",
+  "main": "./out/main/index.mjs",
+  "scripts": {
+    "dev": "cross-env ELECTRON_RUN_AS_NODE=\"\" electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "package": "electron-vite build && electron-builder --win",
+    "package:portable": "electron-vite build && electron-builder --win portable"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "sql.js": "^1.14.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "cross-env": "^10.1.0",
+    "electron": "33.4.11",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^2.3.0",
+    "typescript": "^5.9.3"
+  }
+}
