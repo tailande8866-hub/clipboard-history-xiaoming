@@ -77,7 +77,6 @@ function toggleWindow(): void {
 }
 
 function createTray(): void {
-  // Create a simple 16x16 tray icon programmatically
   tray = new Tray(createTrayIcon())
   const menu = Menu.buildFromTemplate([
     { label: '显示/隐藏', click: toggleWindow },
@@ -90,24 +89,25 @@ function createTray(): void {
 }
 
 function createTrayIcon(): Electron.NativeImage {
-  const size = 16
-  const buf = Buffer.alloc(size * size * 4)
-  const cx = 7, cy = 7, r = 6
-  for (let y = 0; y < size; y++) {
-    for (let x = 0; x < size; x++) {
-      const i = (y * size + x) * 4
-      const dx = x - cx, dy = y - cy
-      if (dx * dx + dy * dy <= r * r) {
-        buf[i] = 74
-        buf[i + 1] = 144
-        buf[i + 2] = 217
-        buf[i + 3] = 255
-      } else {
-        buf[i + 3] = 0
-      }
+  const paths = [
+    join(__dirname, '../../resources/icon.png'),
+    join(process.resourcesPath, 'icon.png'),
+  ]
+  for (const p of paths) {
+    try {
+      const img = nativeImage.createFromPath(p)
+      if (!img.isEmpty()) return img.resize({ width: 16, height: 16 })
+    } catch { /* try next */ }
+  }
+  const buf = Buffer.alloc(16 * 16 * 4)
+  for (let y = 0; y < 16; y++) {
+    for (let x = 0; x < 16; x++) {
+      const i = (y * 16 + x) * 4
+      const dx = x - 7, dy = y - 7
+      if (dx * dx + dy * dy <= 36) { buf[i] = 74; buf[i + 1] = 144; buf[i + 2] = 217; buf[i + 3] = 255 }
     }
   }
-  return nativeImage.createFromBuffer(buf, { width: size, height: size })
+  return nativeImage.createFromBuffer(buf, { width: 16, height: 16 })
 }
 
 app.whenReady().then(async () => {

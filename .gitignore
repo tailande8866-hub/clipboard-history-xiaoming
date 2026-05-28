@@ -3,5 +3,7 @@ dist/
 release/
 out/
 *.map
+*.blockmap
 .DS_Store
 .claude/
+小明剪贴板 Setup*.exe
